@@ -4,11 +4,11 @@ import joblib
 import gzip
 
 # Load model (gzip)
-with gzip.open("model.sav.gz", "rb") as f:
+with gzip.open("model.sav", "rb") as f:
     model = joblib.load(f)
 
 # Load scaler
-with gzip.open("scaler.sav.gz", "rb") as f:
+with gzip.open("scaler.sav", "rb") as f:
     scaler = joblib.load(f)
 
 # Load feature order (TOP 10 FEATURES)
@@ -41,3 +41,4 @@ def predict_diabetes(user_input_dict):
     label = "Diabetes" if pred == 1 else "Tidak Diabetes"
 
     return label, float(prob)
+
